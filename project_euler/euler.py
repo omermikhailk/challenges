@@ -7,6 +7,8 @@ from functools import lru_cache
 from math import prod
 
 
+# Primes
+
 def trial_division(n: int) -> list[int]:
     """Returns the prime factors of `n` using the trial division method.
 
@@ -29,28 +31,7 @@ def trial_division(n: int) -> list[int]:
     return prime_factors
 
 
-@lru_cache(maxsize=None)
-def fib(n: int) -> int:
-    """Calculates the `n`-th term of the Fibonacci sequence using recursion.
-
-    This particular sequence varies from the traditional one by starting with 1
-    and 2. Leading to:
-
-    `1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...`
-
-    Args:
-        n (int): The term of our Fibonacci sequence.
-
-    Returns:
-        int: The value of the `n`-th term of the sequence.
-    """
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 2
-    else:
-        return fib(n - 1) + fib(n - 2)
-
+# Number theory
 
 def lcm(a: int, b: int) -> int:
     """Returns the LCM of two numbers, `a` and `b`.
@@ -85,6 +66,31 @@ def gcd(a: int, b: int) -> int:
             divisor.append(i)
 
     return prod(divisor)
+
+
+# Sequences and series
+
+@lru_cache(maxsize=None)
+def fib(n: int) -> int:
+    """Calculates the `n`-th term of the Fibonacci sequence using recursion.
+
+    This particular sequence varies from the traditional one by starting with 1
+    and 2. Leading to:
+
+    `1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...`
+
+    Args:
+        n (int): The term of our Fibonacci sequence.
+
+    Returns:
+        int: The value of the `n`-th term of the sequence.
+    """
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    else:
+        return fib(n - 1) + fib(n - 2)
 
 
 def main():
