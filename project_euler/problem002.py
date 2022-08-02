@@ -1,27 +1,4 @@
-from functools import lru_cache
-
-
-@lru_cache(maxsize=None)
-def fib(n: int) -> int:
-    """Calculates the `n`-th term of the Fibonacci sequence using recursion.
-
-    This particular sequence varies from the traditional one by starting with 1
-    and 2. Leading to:
-
-    `1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...`
-
-    Args:
-        n (int): The term of our Fibonacci sequence.
-
-    Returns:
-        int: The value of the `n`-th term of the sequence.
-    """
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 2
-    else:
-        return fib(n - 1) + fib(n - 2)
+from euler import fib
 
 
 def sum_even_valued(limit: int) -> int:
