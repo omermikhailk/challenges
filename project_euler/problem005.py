@@ -3,13 +3,13 @@
 from math import lcm
 
 def equal_divisors(n: int) -> int:
-    # Returns the lease commmon divisor of all of the numbers from 1 to `n`.
+    # Returns the smallest multiple (LCM) of the numbers from 1 to `n`.
 
     # Args:
-    #     n (int): The upper limit of the range of numbers we want the LCM for.
+    #     n (int): The upper bound on the list of numbers we want the LCM for.
 
     # Returns:
-    #     int: The LCM of the numbers from 1 to `n`.
+    #     int: The LCM of all of the numbers from 1 to `n`.
 
     return lcm(*[i for i in range(1, n + 1)])
 
@@ -21,7 +21,7 @@ from euler import lcm
 
 
 def even_divisor(n) -> int:
-    """Returns the smallest even divisor (LCM) of the numbers from 1 to `n`.
+    """Returns the smallest multiple (LCM) of the numbers from 1 to `n`.
 
     Args:
         n (int): The upper bound on the list of numbers we want the LCM for.
