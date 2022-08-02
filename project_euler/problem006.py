@@ -15,7 +15,7 @@ def sum_square_diff(n: int) -> int:
 
 
 def main():
-    pass
+    print(sum_square_diff(100))
 
 
 if __name__ == "__main__":

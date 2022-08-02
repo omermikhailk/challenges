@@ -42,7 +42,7 @@ def even_divisor(n) -> int:
 
 
 def main():
-    pass
+    print(even_divisor(20))
 
 
 if __name__ == "__main__":
