@@ -31,18 +31,20 @@ def trial_division(n: int) -> list[int]:
     return prime_factors
 
 
-def sieve_of_eratosthenes(n: int) -> list[int]:
-    """Generates a list of primes within the range of 1 to `n`, using the
-    Sieve of Eratosthenes algorithm.
+def sieve_of_eratosthenes(limit: int = 1_000_000) -> list[int]:
+    """Uses the Sieve of Eratosthenes algorithm with an arbitary search range
+    (`limit`) and generators in Python to yield a prime.
 
     Args:
-        n (int): The number we want to generate primes uptil.
+        limit (int, optional): The limit that we want to generate primes uptil.
 
     Returns:
-        list[int]: A list of primes from 1 to `n`.
+        p [int]: A prime number.
     """
-    nums = {i: True for i in range(2, n + 1)}
+    nums = {i: True for i in range(2, limit + 1)}
     p = 2
+
+    yield p  # Since it's the first prime
 
     while True:
         p_old = p
@@ -58,11 +60,10 @@ def sieve_of_eratosthenes(n: int) -> list[int]:
                 p = i
                 break
 
-        # See if there's no new `p` to get, if so we've reached the end
         if p == p_old:
             break
 
-    return [k for k, v in nums.items() if v]
+        yield p
 
 
 # Number theory
