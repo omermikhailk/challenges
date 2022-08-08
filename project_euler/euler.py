@@ -7,7 +7,7 @@ from functools import lru_cache
 from math import prod
 
 
-# Primes
+# Prime numbers
 
 def trial_division(n: int) -> list[int]:
     """Returns the prime factors of `n` using the trial division method.
@@ -29,6 +29,40 @@ def trial_division(n: int) -> list[int]:
             i += 1
 
     return prime_factors
+
+
+def sieve_of_eratosthenes(n: int) -> list[int]:
+    """Generates a list of primes within the range of 1 to `n`, using the
+    Sieve of Eratosthenes algorithm.
+
+    Args:
+        n (int): The number we want to generate primes uptil.
+
+    Returns:
+        list[int]: A list of primes from 1 to `n`.
+    """
+    nums = {i: True for i in range(2, n + 1)}
+    p = 2
+
+    while True:
+        p_old = p
+
+        # Mark values as False if multiples
+        for i in nums.keys():
+            if i != p and not i % p:
+                nums[i] = False
+
+        # Find the new value for `p`
+        for i, j in nums.items():
+            if i > p and j:
+                p = i
+                break
+
+        # See if there's no new `p` to get, if so we've reached the end
+        if p == p_old:
+            break
+
+    return [k for k, v in nums.items() if v]
 
 
 # Number theory
