@@ -41,17 +41,19 @@ def sieve_of_eratosthenes(limit: int = 1_000_000) -> list[int]:
     Returns:
         p [int]: A prime number.
     """
-    nums = {i: True for i in range(2, limit + 1)}
-    p = 2
+    nums = {i: True for i in range(2, limit + 1) if i % 2}
 
-    yield p  # Since it's the first prime
+    yield 2  # Since it's the first prime
+
+    p = 3
+    yield p
 
     while True:
         p_old = p
 
         # Mark values as False if multiples
         for i in nums.keys():
-            if i != p and not i % p:
+            if i >= 2 * p and not i % p:
                 nums[i] = False
 
         # Find the new value for `p`
