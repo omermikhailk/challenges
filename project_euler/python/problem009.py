@@ -1,6 +1,3 @@
-from ast import If
-
-
 def triplet_product(n: int) -> int:
     """Finds the Pythagorean triplets `a`, `b` and `c` which add up to
     `n`, and returrns their product.
