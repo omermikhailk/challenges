@@ -35,6 +35,8 @@ def sieve_of_eratosthenes(limit: int = 1_000_000) -> list[int]:
     """Uses the Sieve of Eratosthenes algorithm with an arbitary search range
     (`limit`) and generators in Python to yield a prime.
 
+    This could be a lot faster so I'll try my hand at that in the future.
+
     Args:
         limit (int, optional): The limit that we want to generate primes uptil.
 
